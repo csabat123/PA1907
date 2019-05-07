@@ -1,0 +1,14 @@
+ul.story{
+    list-style-type:none;
+    float: left;
+    margin: 1%;
+    padding: 1%;
+    display: inline-block;
+    color: #0000FF;
+    
+}
+li.story{
+    padding: 1%;
+    
+}
+
