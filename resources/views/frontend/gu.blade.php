@@ -1,15 +1,26 @@
 
-@extends ('layouts.master')
+@extends ('studentlayouts.master')
 
-@section('title', 'Grivience&Update')
+@section('title', 'Home')
 
 @section('content')
 
+<head>
 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 
-
-
-<div class="card" style="float:left;">
+</head>
+<div class="container-fluid">
+    <br><br>
+    <div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><center>Updates & Grievances</center></h3>
+        </div>
+                 </div>
+</div>
+<div class="card" style="float:left; ">
 	<article class="card-group-item">
 		<header class="card-header">
 			<h6 class="title">Campus </h6>
@@ -38,7 +49,7 @@
 			</div> <!-- card-body.// -->
 		</div>
 	</article> <!-- card-group-item.// -->
-	
+
 	<article class="card-group-item">
 		<header class="card-header">
 			<h6 class="title">Event </h6>
@@ -53,7 +64,7 @@
 				<div class="custom-control custom-checkbox">
 				  	<input type="checkbox" class="custom-control-input" id="Check6">
 				 	<label class="custom-control-label" for="Check6">Grievance</label>
-				</div> 
+				</div>
 
 			</div> <!-- card-body.// -->
 		</div>
@@ -323,14 +334,14 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-      </div>	  
+      </div>
       <div class="modal-body">
        <div class="container">
 <form action="/action.page.php">
 
 <fieldset class="form-group">
 Type:
-<select class="form-control"> 
+<select class="form-control">
   <option>Update</option>
   <option>Grievance</option>
 </select>
@@ -378,11 +389,9 @@ Type:
 	</div>
 
 </div>
-</div>  
- 
-        </div>
-        <!-- /#page-content-wrapper -->
+</div>
 
-    </div>
+
+
 
   @endsection
