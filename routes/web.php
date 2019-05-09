@@ -16,13 +16,42 @@ Route::get('/', function () {
 }) ->name('Login');
 
 Route::get('formwrap', function () {
-    return view('index');
+    return view('studentfrontend.studentindex');
 });
 
-Route::get('navbar', array('as' => 'navbtn', function()
-{
-    return view('login');
-}));
+Route::get('studentupdate', function () {
+    return view('studentfrontend.update');
+});
+
+Route::get('studentindex', function () {
+    return view('studentfrontend.studentindex');
+});
+
+
+
+Route::get('studentgrievance', function () {
+    return view('studentfrontend.grievance');
+});
+
+Route::get('admingrievance', function () {
+    return view('adminfrontend.gu');
+});
+
+Route::get('adminstory', function () {
+    return view('adminfrontend.adminstory');
+});
+
+Route::get('adminteam', function () {
+    return view('adminfrontend.team');
+});
+
+Route::get('admin', function () {
+    return view('adminfrontend.adminstory');
+});
+
+Route::get('teamedit', function () {
+    return view('adminfrontend.teamedit');
+});
 
 
 
