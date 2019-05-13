@@ -13,6 +13,19 @@
     <br>
     <center><h4> Lodged Grievances </h4></center>
     <br>
+    <div style="float: left">
+	<select class="form-control form-control-medium">
+	<option>20</option>
+	<option>40</option>
+	<option>60</option>
+	<option>100</option>
+	</select>
+	</div>
+    <div class="smallform-group mx-sm-1 mb-2" style="float:right;" >
+    <label for="searchfilter" class="sr-only">search</label>
+    <input type="Search" class="form-control" id="searchfilter" placeholder="Search">
+  </div>
+</div>
     <p>      <table id="example" class="table table-striped table-bordered" style="width:100%">
     <thead>
       <tr>
