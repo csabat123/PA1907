@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('home');
 }) ->name('Login');
 
 Route::get('formwrap', function () {
@@ -55,7 +55,22 @@ Route::get('teamedit', function () {
 
 
 
-// Route::get('menu-toggle', 'TestController@navbar');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('studentfrontend.studentindex');
+
+
+Route::get('/admin', 'AdminController@index') ;
+return redirect("studentfrontend.studentindex");
+
+Route::get('/student', 'StudentController@index');
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

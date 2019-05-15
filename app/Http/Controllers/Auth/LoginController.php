@@ -20,12 +20,16 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
+    protected function authenticated($request, $user)
+        {
+         if($user->hasRole[$Admin]) {
+         return redirect(‘/adminstory’);
+            } elseif ($user->hasRole[$Student]) {
+            return redirect(‘/studentindex’);
+        } else {
+          return redirect(‘/home’);
+    }
+}
 
     /**
      * Create a new controller instance.
@@ -36,4 +40,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
 }

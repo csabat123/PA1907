@@ -484,67 +484,7 @@ body {
 }
 
 
-/*     Progress Bar*/
 
-.cont{
-  height: auto;
-  width: auto;
-  padding: 0;
-  margin: auto;
-  position: relative;
-}
-#progress-bar{
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  color: #000;
-  height: 2px;
-  margin-left: 16%;
-  max-width: 65%
-  
-}
-.span.progress {
-  height: 1%;
-  width: 1%;
-  border-radius: 100%;
-  border: 4px solid #137CC0;
-  background:#137CC0;
-  position: absolute;
-  left:0;
-  top: 50%;
-  cursor: pointer;
-  transition: all 0.4s ease-in-out;
-    
-}
-.span.first{
-  left: 16%;
-}
-
-.span.second{
-  left: 32%;
-}
-.span.third{
-  left: 48%;
-}
-.span.fourth{
-  left: 64%;
-}
-.span.fivth{
-  left: 80%;
-}
-
-
-#progress-bar::-webkit-progress-value{ /* Changes line color */
-  background: #5045cb;
-  transition: all 0.4s ease-in-out;
-}
-#progress-bar::-webkit-progress-bar{ /* Changes background color */
-  background: #fff;
-}
-.border-change{
-  border-color:#fff;
-  transition: all 0.4s ease-in-out;
-}
 
 
 /* expandolist*/

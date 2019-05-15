@@ -73,18 +73,6 @@
 			</div> <!-- card-body.// -->
 		</div>
 	</article> <!-- card-group-item.// -->
-    <div style="float: left">
-	<select class="form-control form-control-medium">
-	<option>20</option>
-	<option>40</option>
-	<option>60</option>
-	<option>100</option>
-	</select>
-	</div>
-    <div class="smallform-group mx-sm-1 mb-2" style="float:right;" >
-    <label for="searchfilter" class="sr-only">search</label>
-    <input type="Search" class="form-control" id="searchfilter" placeholder="Search">
-  </div>
 </div>
       <table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
@@ -341,22 +329,6 @@
         <tfoot>
         </tfoot>
     </table>
-    <div style="float: center">
-
-   <ul class="pagination">
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1">Previous</a>
-    </li>
-    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#">Next</a>
-    </li>
-   </ul>
-	</div>
 	<a href="javascript:history.back()" class="btn btn-primary" role="button">Go Back</a>
 	<div class="modal fade" id="eventmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

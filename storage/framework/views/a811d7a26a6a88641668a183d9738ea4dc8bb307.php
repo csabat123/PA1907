@@ -1,30 +1,33 @@
-<header>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-<div class="d-flex" id="wrapper">
+<link href="<?php echo e(asset('css/simple-sidebar.css')); ?>" rel="stylesheet">
+<link href="<?php echo e(asset('css2/style.css')); ?>" rel="stylesheet">
+</head>
 
+<body>
 
-    
+    <div class="d-flex" id="wrapper">
 
         <!-- Sidebar -->
-<div class="bg-light border-right" id="sidebar-wrapper">
-        <div class="sidebar-heading">Professional Development</div>
-        <div class="list-group list-group-flush">
-            <a href="index.html" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-            <a href="team.html" class="list-group-item list-group-item-action bg-light">Team Manager</a>
-            <a href="update.html" class="list-group-item list-group-item-action bg-light">Group Update</a>
-            <a href="event.html" class="list-group-item list-group-item-action bg-light">Updates</a>
-            <a href="story.html" class="list-group-item list-group-item-action bg-light">Story Board</a>
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">Professional Development</div>
+            <div class="list-group list-group-flush">
+                <a href="studenthome" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+                <a href="team.html" class="list-group-item list-group-item-action bg-light">Team Manager</a>
+                <a href="gu" class="list-group-item list-group-item-action bg-light">Group Update</a>
+                <a href="event.html" class="list-group-item list-group-item-action bg-light">Updates</a>
+                <a href="studentindex" class="list-group-item list-group-item-action bg-light">Story Board</a>
+            </div>
         </div>
-    </div>
-    <!-- /#sidebar-wrapper -->
-
-
+        <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
 
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                <button href="<?php echo e(route('navbtn')); ?>" class="btn btn-primary" id="menu-toggle" type="button">Menu</button>
+                <button class="btn btn-primary" id="menu-toggle">Menu</button>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -48,6 +51,14 @@
                     </ul>
                 </div>
             </nav>
+
+            <div class="container-fluid">
+                <br><br>
+
+
+
+
+            </div>
 
 
 
@@ -77,36 +88,28 @@
 
                      <!-- Menu Toggle Script -->
 
-    <script>
-            $("#menu-toggle").click(function(e) {
-                e.preventDefault();
-                $("#wrapper").toggleClass("toggled");
-            });
-        </script>
+                     <script>
+                        $("#menu-toggle").click(function(e) {
+                        e.preventDefault();
+                        $("#wrapper").toggleClass("toggled");
+                         }).click();
+                    </script>
 
 
-        <script>
-            $('.expando-list__item').on('click', e => {
-                const isOpen = $(e.currentTarget).hasClass('expando-list__item--open');
-
-                $('.expando-list__item').removeClass('expando-list__item--open');
-
-                if (isOpen) return;
-
-                $(e.currentTarget).addClass('expando-list__item--open');
-            });
-        </script>
 
 
-        <script>
-            $(document).ready(function() {
-                $('[id^=detail-]').hide();
-                $('.toggle').click(function() {
-                    $input = $(this);
-                    $target = $('#' + $input.attr('data-toggle'));
-                    $target.slideToggle();
-                });
-            });
-        </script>
 
+                    <script>
+                        $(document).ready(function() {
+                            $('[id^=detail-]').hide();
+                            $('.toggle').click(function() {
+                                $input = $(this);
+                                $target = $('#' + $input.attr('data-toggle'));
+                                $target.slideToggle();
+                            });
+                        });
+                    </script>
+
+
+                </body>
 <?php /**PATH I:\Gary\laravel\resources\views/layouts/header.blade.php ENDPATH**/ ?>
