@@ -12,65 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home');
-}) ->name('Login');
-
-Route::get('formwrap', function () {
-    return view('studentfrontend.studentindex');
+    return view('welcome');
 });
 
-Route::get('studentupdate', function () {
-    return view('studentfrontend.update');
-});
-
-Route::get('studentindex', function () {
-    return view('studentfrontend.studentindex');
-});
-
-
-
-Route::get('studentgrievance', function () {
-    return view('studentfrontend.grievance');
-});
-
-Route::get('admingrievance', function () {
-    return view('adminfrontend.gu');
-});
-
-Route::get('adminstory', function () {
-    return view('adminfrontend.adminstory');
-});
-
-Route::get('adminteam', function () {
-    return view('adminfrontend.team');
-});
-
-Route::get('admin', function () {
-    return view('adminfrontend.adminstory');
-});
-
-Route::get('teamedit', function () {
-    return view('adminfrontend.teamedit');
-});
-
-
-
-
-
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('studentfrontend.studentindex');
-
-
-Route::get('/admin', 'AdminController@index') ;
-return redirect("studentfrontend.studentindex");
-
-Route::get('/student', 'StudentController@index');
-
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('tasks', 'TaskController');
