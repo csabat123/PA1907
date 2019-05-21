@@ -1,0 +1,115 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<link href="{{ asset('css/simple-sidebar.css') }}" rel="stylesheet">
+<link href="{{ asset('css2/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="d-flex" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">Professional Development</div>
+            <div class="list-group list-group-flush">
+                    <a href="adminstory" class="list-group-item list-group-item-action bg-light">Story Board</a>
+                <a href="admingrievance" class="list-group-item list-group-item-action bg-light">Grievance&Update</a>
+                <a href="adminteam" class="list-group-item list-group-item-action bg-light">Team Manage</a>
+                <a href="studentupdate" class="list-group-item list-group-item-action bg-light">Updates</a>
+                <a href="studentupdate" class="list-group-item list-group-item-action bg-light">Updates</a>
+
+            </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <button class="btn btn-primary" id="menu-toggle">Menu</button>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <center><img src="pic/uws.png" style="width: 15%;" alt="uwslogo"></center>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0 sm-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="admin">Admin</a>
+                                <a class="dropdown-item" href="https://login.microsoftonline.com/common/oauth2/authorize?client_id=00000002-0000-0ff1-ce00-000000000000&redirect_uri=https%3a%2f%2foutlook.office.com%2fowa%2f&resource=00000002-0000-0ff1-ce00-000000000000&response_mode=form_post&response_type=code+id_token&scope=openid&msafed=0&client-request-id=644d5fde-8af0-40c6-a3a3-1ed84826f937&protectedtoken=true&domain_hint=student.westernsydney.edu.au&nonce=636890685184757533.eea7595b-87db-47b6-9b30-08ed718a0fff&state=DcvBDYAgDEBR0CGcAi2B0nIw7uAGICV6MjEY15fD-7evlVJjN3QaehQFFzhCYLTsCQmdm0USYcRsmEo2nnIwMTswwFLIcoJaq-7vtNxfWrb0tnOXcj1ytLU9r_w">Email</a>
+                                <a class="dropdown-item" href="profile.html">Profile</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="login.html">Log Out</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <br><br>
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <div class="container">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                     <!-- Menu Toggle Script -->
+
+                     <script>
+                        $("#menu-toggle").click(function(e) {
+                        e.preventDefault();
+                        $("#wrapper").toggleClass("toggled");
+                         }).click();
+                    </script>
+
+
+
+
+
+                    <script>
+                        $(document).ready(function() {
+                            $('[id^=detail-]').hide();
+                            $('.toggle').click(function() {
+                                $input = $(this);
+                                $target = $('#' + $input.attr('data-toggle'));
+                                $target.slideToggle();
+                            });
+                        });
+                    </script>
+
+
+                </body>
