@@ -8,7 +8,8 @@
           <thead class="thead-dark">
             <tr>
               <th scope="col">#</th>
-              <th scope="col">Task Subject</th>
+              <th scope="col">Task Title</th>
+              <th scope="col">Task Type</th>
               <th scope="col">Task Description</th>
               <th scope="col">Created At</th>
               <th scope="col">Action</th>
@@ -19,6 +20,7 @@
             <tr>
               <th scope="row">{{$task->id}}</th>
               <td><a href="/tasks/{{$task->id}}">{{$task->title}}</a></td>
+              <td>{{$task->type}}</td>
               <td>{{$task->description}}</td>
               <td>{{$task->created_at->toFormattedDateString()}}</td>
               <td>

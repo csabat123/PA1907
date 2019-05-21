@@ -5,7 +5,8 @@
 
     <div class="jumbotron text-center">
         <p>
-            <strong>Task Subject:</strong> {{ $task->title }}<br>
+            <strong>Task Title:</strong> {{ $task->title }}<br>
+            <strong>Type:</strong> {{ $task->type }}<br>
             <strong>Description:</strong> {{ $task->description }}
         </p>
     </div>

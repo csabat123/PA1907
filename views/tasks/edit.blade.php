@@ -7,8 +7,16 @@
      <input type="hidden" name="_method" value="PUT">
      {{ csrf_field() }}
       <div class="form-group">
-        <label for="title">Task Subject</label>
+        <label for="title">Task Title</label>
         <input type="text" value="{{$task->title}}" class="form-control" id="taskTitle"  name="title" >
+      </div>
+      <div class="form-group">
+        <label for="title">Type</label>
+        <select class="form-control" id="taskType" value="{{$task->type}}" name="type">
+        <option>{{$task->type}}</option>
+        <option>Update</option>
+        <option>Grievance</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="description">Task Description</label>
