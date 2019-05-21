@@ -33,12 +33,6 @@
         </div>
       </div>
       </div>
-      <select name="cars" size="4" multiple>
-      <option value="volvo">Volvo</option>
-      <option value="saab">Saab</option>
-      <option value="fiat">Fiat</option>
-     <option value="audi">Audi</option>
-  </select>
       <br>
       <div class="form-group">
         <label for="description">Task Description</label>

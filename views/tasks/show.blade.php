@@ -7,7 +7,9 @@
         <p>
             <strong>Task Title:</strong> {{ $task->title }}<br>
             <strong>Type:</strong> {{ $task->type }}<br>
-            <strong>Description:</strong> {{ $task->description }}
+            <strong>Students Involved:</strong> {{ $task->studentinvolved }}<br>
+            <strong>Description:</strong> {{ $task->description }}<br>
+            <strong>Campus:</strong> {{ $task->campus }}
         </p>
     </div>
 @endsection

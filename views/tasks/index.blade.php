@@ -11,7 +11,9 @@
               <th scope="col">Task Title</th>
               <th scope="col">Task Type</th>
               <th scope="col">Task Description</th>
+              <th scope="col">Students Involved</th>
               <th scope="col">Created At</th>
+              <th scope="col">Campus</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -22,7 +24,9 @@
               <td><a href="/tasks/{{$task->id}}">{{$task->title}}</a></td>
               <td>{{$task->type}}</td>
               <td>{{$task->description}}</td>
+              <td>{{$task->studentinvolved}}</td>
               <td>{{$task->created_at->toFormattedDateString()}}</td>
+              <td>{{$task->campus}}</td>
               <td>
               <div class="btn-group" role="group" aria-label="Basic example">
                   <a href="{{ URL::to('tasks/' . $task->id . '/edit') }}">
