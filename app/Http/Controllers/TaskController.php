@@ -16,7 +16,7 @@ class TaskController extends Controller
     {
         //
         $tasks = Task::all();
-        return view('tasks.index',compact('tasks',$tasks));
+        return view('studentfrontend.update',compact('tasks',$tasks));
     }
 
     /**
@@ -41,9 +41,14 @@ class TaskController extends Controller
         $request->validate([
             'title' => 'required|min:3',
             'description' => 'required',
+            
+        ]);
+
+        $request -> merge([
+            'studentinvolved' => implode(',',(array) $request -> get('studentinvolved'))
         ]);
         
-        $task = Task::create(['title' => $request->title,'description' => $request->description]);
+        $task = Task::create(['title' => $request->title,'description' => $request->description,'type' => $request->type,'studentinvolved' => $request->studentinvolved]);
         return redirect('/tasks/'.$task->id);
     }
 
@@ -56,6 +61,7 @@ class TaskController extends Controller
     public function show(Task $task)
     {
         return view('tasks.show',compact('task',$task));
+        return view('studentfrontend.update',compact('task',$task));
     }
 
     /**
@@ -86,6 +92,8 @@ class TaskController extends Controller
         
         $task->title = $request->title;
         $task->description = $request->description;
+        $task->type = $request->type;
+        $task->studentinvolved = $request->studentinvolved;
         $task->save();
         $request->session()->flash('message', 'Successfully modified the task!');
         return redirect('tasks');

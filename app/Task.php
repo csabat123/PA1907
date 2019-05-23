@@ -6,5 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Task extends Model
 {
-    protected $guarded = [];
+    protected $table = 'tasks';
+    protected $primary = 'id';
+    protected $fillable = [
+        'title', 'description', 'type', 'studentinvolved'
+    ];
 }
