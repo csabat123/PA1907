@@ -79,10 +79,27 @@
         <br><br><br><br>
         <div class="container" style="position: absolute; left:70%">
 
-            <p id="demo"></p>
 
-            <p>Click the button to Up load CSV file.</p>
-            <input type="file" id="myFile">
+            <div class="container">
+                <div class="card bg-light mt-3">
+                    <div class="card-header">
+                        Laravel 5.7 Import Export Excel to database Example - ItSolutionStuff.com
+                    </div>
+                    <div class="card-body">
+                        <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="file" name="file" class="form-control">
+                            <br>
+                            <button class="btn btn-success">Import User Data</button>
+                            <a class="btn btn-warning" href="{{ route('export') }}">Export User Data</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+
 
             <br>
             <p>Click the button to delete the team.</p>

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('login1');
 }) ->name('Login');
 
 Route::get('formwrap', function () {
@@ -55,22 +55,21 @@ Route::get('teamedit', function () {
 
 
 
+Route::get('export', 'MyController@export')->name('export');
+Route::get('importExportView', 'MyController@importExportView');
+Route::post('import', 'MyController@import')->name('import');
+Route::resource('adminteam', 'usershowController');
 
 
 
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('studentfrontend.studentindex');
-
-
 Route::get('/admin', 'AdminController@index') ;
 return redirect("studentfrontend.studentindex");
-
 Route::get('/student', 'StudentController@index');
-
-
-
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+

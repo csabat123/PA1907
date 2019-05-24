@@ -4,6 +4,9 @@
 
 <link href="{{ asset('css/simple-sidebar.css') }}" rel="stylesheet">
 <link href="{{ asset('css2/style.css') }}" rel="stylesheet">
+
+<script src="{{ asset('js/jquery-3.4.1.min.js')}}"></script>
+<script src="{{ asset('js/app.js')}}"></script>
 </head>
 
 <body>
@@ -32,23 +35,38 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <center><img src="pic/uws.png" style="width: 15%;" alt="uwslogo"></center>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0 sm-0">
+                <ul class="navbar-nav ml-auto">
+                    <!-- Authentication Links -->
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            </li>
+                        @endif
+                    @else
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->firstName }} {{ Auth::user()->lastName }} <span class="caret"></span>
                             </a>
+
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="admin">Admin</a>
-                                <a class="dropdown-item" href="https://login.microsoftonline.com/common/oauth2/authorize?client_id=00000002-0000-0ff1-ce00-000000000000&redirect_uri=https%3a%2f%2foutlook.office.com%2fowa%2f&resource=00000002-0000-0ff1-ce00-000000000000&response_mode=form_post&response_type=code+id_token&scope=openid&msafed=0&client-request-id=644d5fde-8af0-40c6-a3a3-1ed84826f937&protectedtoken=true&domain_hint=student.westernsydney.edu.au&nonce=636890685184757533.eea7595b-87db-47b6-9b30-08ed718a0fff&state=DcvBDYAgDEBR0CGcAi2B0nIw7uAGICV6MjEY15fD-7evlVJjN3QaehQFFzhCYLTsCQmdm0USYcRsmEo2nnIwMTswwFLIcoJaq-7vtNxfWrb0tnOXcj1ytLU9r_w">Email</a>
-                                <a class="dropdown-item" href="profile.html">Profile</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="login.html">Log Out</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
                             </div>
                         </li>
-                    </ul>
-                </div>
+                    @endguest
+                </ul>
             </nav>
 
             <div class="container-fluid">
