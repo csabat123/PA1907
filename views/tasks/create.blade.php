@@ -20,16 +20,16 @@
       <div class="row">
       <div class="col-9">
         <div class="checkbox">
-          <label><input type="checkbox" id="taskstudentinvolved"  name="studentinvolved" value="Chrsitopher Sabat">Chrsitopher Sabat</label>
+          <label><input type="checkbox" id="taskstudentinvolved"  name="studentinvolved[]" value="Chrsitopher Sabat">Chrsitopher Sabat</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" id="taskstudentinvolved"  name="studentinvolved" value="Hussien Samman">Hussien Samman</label>
+          <label><input type="checkbox" id="taskstudentinvolved"  name="studentinvolved[]" value="Hussien Samman">Hussien Samman</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" id="taskstudentinvolved"  name="studentinvolved" value="Benan Ergen">Benan Ergen</label>
+          <label><input type="checkbox" id="taskstudentinvolved"  name="studentinvolved[]" value="Benan Ergen">Benan Ergen</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" id="taskstudentinvolved"  name="studentinvolved" value=">Han-Te Tsai">Han-Te Tsai</label>
+          <label><input type="checkbox" id="taskstudentinvolved"  name="studentinvolved[]" value=">Han-Te Tsai">Han-Te Tsai</label>
         </div>
       </div>
       </div>

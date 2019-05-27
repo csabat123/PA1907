@@ -16,7 +16,7 @@ class TaskController extends Controller
     {
         //
         $tasks = Task::all();
-        return view('tasks.index',compact('tasks',$tasks));
+        return view('studentfrontend.update',compact('tasks',$tasks));
     }
 
     /**
@@ -41,6 +41,11 @@ class TaskController extends Controller
         $request->validate([
             'title' => 'required|min:3',
             'description' => 'required',
+            
+        ]);
+
+        $request -> merge([
+            'studentinvolved' => implode(',',(array) $request -> get('studentinvolved'))
         ]);
         
         $task = Task::create(['title' => $request->title,'description' => $request->description,'type' => $request->type,'studentinvolved' => $request->studentinvolved]);
@@ -55,7 +60,8 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        return view('tasks.show',compact('task',$task));
+        return view('studentfrontend.guview',compact('task',$task));
+        return view('studentfrontend.update',compact('task',$task));
     }
 
     /**
