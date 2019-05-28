@@ -7,6 +7,9 @@
 <script src="{{ asset('js/app.js')}}"></script>
 <script src="{{ asset('js/jquerybootstrap4.js')}}"></script>
 <script src="{{ asset('js/jquerydatatables.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+			    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
 
 
@@ -37,6 +40,7 @@
         </thead>
         <tbody>
         @foreach($tasks as $task)
+        @if ($task->type == 'Update')
             <tr>
               <th scope="row">{{$task->id}}</th>
               <td><a href="/tasks/{{$task->id}}">{{$task->title}}</a></td>
@@ -57,6 +61,7 @@
               </div>
 			</td>
             </tr>
+            @endif
             @endforeach
       
 			</tbody>
@@ -94,7 +99,7 @@
       
       <div class="col-9">
         <div class="checkbox">
-          <label><input type="checkbox" name="studentinvolved[]" value="Chrsitopher Sabat">Chrsitopher Sabat</label>
+          <label><input type="checkbox" name="studentinvolved[]" value="Christopher Sabat">Chrsitopher Sabat</label>
         </div>
         <div class="checkbox">
           <label><input type="checkbox" name="studentinvolved[]" value="Hussien Samman">Hussien Samman</label>
@@ -132,268 +137,6 @@
             </div>
           </div>
         </div>
-
-
-
-
-
-        <table id="example" class="table table-striped table-bordered" style="width:100%">
-        <thead>
-		<tr>
-                <th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th colspan="4">
-				<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#eventmodal">
-				 Add
-				</button>
-				</th>
-            </tr>
-            <tr class="table-warning ">
-				<th>Type</th>
-				<th>Group</th>
-                <th>Name</th>
-				<th>Subject</th>
-                <th>Status</th>
-                <th>Students Involved</th>
-				<th>Date</th>
-                <th>Campus</th>
-				<th></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-				<td>Update</td>
-				<td>Group PA1909</td>
-                <td>Michael Rodgers</td>
-                <td><a href=event1.html>System Architect</td>
-				<td></td>
-                <td>Edinburgh</td>
-				<td>2009/01/12</td>
-                <td>61</td>
-				<td><a href="event1.html" class="btn btn-primary btn-xs">
-          <span class="glyphicon glyphicon-option-vertical"></span> View
-        </a>
-		</td>
-            </tr>
-            <tr>
-			<td>Update</td>
-			<td>Group PA1907</td>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-				<td></td>
-                <td>Tokyo</td>
-				<td>2009/01/12</td>
-                <td>63</td>
-				<td><a href="event1.html" class="btn btn-primary btn-xs">
-          <span class="glyphicon glyphicon-option-vertical"></span> View
-        </a>
-		</td>
-            </tr>
-            <tr>
-			<td>Update</td>
-			<td>Group PA1903</td>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-				<td></td>
-                <td>San Francisco</td>
-				<td>2009/01/12</td>
-                <td>66</td>
-			<td><a href="event1.html" class="btn btn-primary btn-xs">
-          <span class="glyphicon glyphicon-option-vertical"></span> View
-        </a>
-		</td>
-            </tr>
-            <tr>
-			<td>Update</td>
-			<td>Group PA1906</td>
-                <td>Cedric Kelly</td>
-                <td>Senior Javascript Developer</td>
-				<td></td>
-                <td>Edinburgh</td>
-				<td>2009/01/12</td>
-                <td>22</td>
-				<td><a href="event1.html" class="btn btn-primary btn-xs">
-          <span class="glyphicon glyphicon-option-vertical"></span> View
-        </a>
-		</td>
-            </tr>
-            <tr>
-			<td>Grievance</td>
-			<td>Group PA1904</td>
-                <td>Airi Satou</td>
-                <td>Accountant</td>
-				<td>In Progress</td>
-                <td>Tokyo</td>
-				<td>2009/01/12</td>
-                <td>33</td>
-				<td><a href="event1.html" class="btn btn-primary btn-xs">
-          <span class="glyphicon glyphicon-option-vertical"></span> View
-        </a>
-		</td>
-            </tr>
-            <tr>
-			<td>Update</td>
-			<td>Group PA1901</td>
-                <td>Brielle Williamson</td>
-                <td>Integration Specialist</td>
-				<td></td>
-                <td>New York</td>
-				<td>2009/01/12</td>
-                <td>61</td>
-				<td><a href="event1.html" class="btn btn-primary btn-xs">
-          <span class="glyphicon glyphicon-option-vertical"></span> View
-        </a>
-		</td>
-            </tr>
-            <tr>
-			<td>Update</td>
-			<td>Group PA1902</td>
-                <td>Herrod Chandler</td>
-                <td>Sales Assistant</td>
-				<td></td>
-                <td>San Francisco</td>
-				<td>2009/01/12</td>
-                <td>59</td>
-				<td><a href="event1.html" class="btn btn-primary btn-xs">
-          <span class="glyphicon glyphicon-option-vertical"></span> View
-        </a>
-		</td>
-            </tr>
-            <tr>
-			<td>Grievance</td>
-			<td>Group PA1903</td>
-                <td>Rhona Davidson</td>
-                <td>Integration Specialist</td>
-				<td>New</td>
-                <td>Tokyo</td>
-				<td>2009/01/12</td>
-                <td>55</td>
-				<td><a href="event1.html" class="btn btn-primary btn-xs">
-          <span class="glyphicon glyphicon-option-vertical"></span> View
-        </a>
-		</td>
-            </tr>
-            <tr>
-			<td>Update</td>
-			<td>Group PA1908</td>
-                <td>Colleen Hurst</td>
-                <td>Javascript Developer</td>
-				<td></td>
-                <td>San Francisco</td>
-				<td>2009/01/12</td>
-                <td>39</td>
-				<td><a href="event1.html" class="btn btn-primary btn-xs">
-          <span class="glyphicon glyphicon-option-vertical"></span> View
-        </a>
-		</td>
-            </tr>
-            <tr>
-			<td>Update</td>
-			<td>Group PA1909</td>
-                <td>Sonya Frost</td>
-                <td>Software Engineer</td>
-				<td></td>
-                <td>Edinburgh</td>
-				<td>2009/01/12</td>
-                <td>23</td>
-				<td><a href="event1.html" class="btn btn-primary btn-xs">
-          <span class="glyphicon glyphicon-option-vertical"></span> View
-        </a>
-		</td>
-            </tr>
-            <tr>
-			<td>Update</td>
-			<td>Group PA1907</td>
-                <td>Jena Gaines</td>
-                <td>Office Manager</td>
-				<td></td>
-                <td>London</td>
-				<td>2009/01/12</td>
-                <td>30</td>
-				<td><a href="event1.html" class="btn btn-primary btn-xs">
-          <span class="glyphicon glyphicon-option-vertical"></span> View
-        </a>
-		</td>
-            </tr>
-            <tr>
-			<td>Update</td>
-			<td>Group PA1907</td>
-                <td>Quinn Flynn</td>
-                <td>Support Lead</td>
-				<td></td>
-                <td>Edinburgh</td>
-				<td>2009/01/12</td>
-                <td>22</td>
-				<td><a href="event1.html" class="btn btn-primary btn-xs">
-          <span class="glyphicon glyphicon-option-vertical"></span> View
-        </a>
-		</td>
-            </tr>
-            <tr>
-			<td>Update</td>
-			<td>Group PA1907</td>
-                <td>Charde Marshall</td>
-                <td>Regional Director</td>
-				<td></td>
-                <td>San Francisco</td>
-				<td>2009/01/12</td>
-                <td>36</td>
-				<td><a href="event1.html" class="btn btn-primary btn-xs">
-          <span class="glyphicon glyphicon-option-vertical"></span> View
-        </a>
-		</td>
-            </tr>
-            <tr>
-			<td>Grievance</td>
-			<td>Group PA1907</td>
-                <td>Haley Kennedy</td>
-                <td>Senior Marketing Designer</td>
-				<td>Resolved - Closed</td>
-                <td>London</td>
-				<td>2009/01/12</td>
-                <td>43</td>
-				<td><a href="event1.html" class="btn btn-primary btn-xs">
-          <span class="glyphicon glyphicon-option-vertical"></span> View
-        </a>
-		</td>
-            </tr>
-            <tr>
-			<td>Grievance</td>
-			<td>Group PA1907</td>
-                <td>Tatyana Fitzpatrick</td>
-                <td>Regional Director</td>
-				<td></td>
-                <td>London</td>
-				<td>2009/01/12</td>
-                <td>19</td>
-				<td><a href="event1.html" class="btn btn-primary btn-xs">
-          <span class="glyphicon glyphicon-option-vertical"></span> View
-        </a>
-		</td>
-            </tr>
-            <tr>
-			<td>Grievance</td>
-			<td>Group PA1907</td>
-                <td>Michael Silva</td>
-                <td>Marketing Designer</td>
-				<td>New</td>
-                <td>London</td>
-				<td>2009/01/12</td>
-                <td>66</td>
-				<td><a href="event1.html" class="btn btn-primary btn-xs">
-          <span class="glyphicon glyphicon-option-vertical"></span> View
-        </a>
-		</td>
-            </tr>
-			</tbody>
-        <tfoot>
-        </tfoot>
-    </table>
-      
-      
 
       <script>
 	$(document).ready(function() {

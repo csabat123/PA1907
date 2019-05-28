@@ -57,6 +57,7 @@ Route::get('teamedit', function () {
     return view('adminfrontend.teamedit');
 });
 Route::resource('studentupdate', 'TaskController');
+Route::resource('studentgrievance', 'TaskController');
 Route::resource('tasks', 'TaskController');
 
 
