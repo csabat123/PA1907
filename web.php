@@ -61,7 +61,8 @@ Route::resource('studentgrievance', 'TaskController');
 Route::resource('tasks', 'TaskController');
 
 
-
+Route::post('/comment/store', 'CommentController@store')->name('comment.add');
+Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
 
 
 
@@ -80,3 +81,4 @@ Route::get('/student', 'StudentController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
