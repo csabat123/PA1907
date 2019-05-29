@@ -22,11 +22,15 @@ Route::get('formwrap', function () {
 Route::get('studentupdate', function () {
     return view('studentfrontend.update');
 });
-
+Route::get('view', function () {
+    return view('studentfrontend.guview');
+});
 Route::get('studentindex', function () {
     return view('studentfrontend.studentindex');
 });
-
+Route::get('test', function () {
+    return view('studentfrontend.test');
+});
 
 
 Route::get('studentgrievance', function () {
@@ -44,6 +48,9 @@ Route::get('adminstory', function () {
 Route::get('adminteam', function () {
     return view('adminfrontend.team');
 });
+Route::get('adminguview', function () {
+        return view('adminfrontend.guview');
+});
 
 Route::get('admin', function () {
     return view('adminfrontend.adminstory');
@@ -53,10 +60,12 @@ Route::get('teamedit', function () {
     return view('adminfrontend.teamedit');
 });
 Route::resource('studentupdate', 'TaskController');
+Route::resource('studentgrievance', 'TaskController');
 Route::resource('tasks', 'TaskController');
 
 
-
+Route::post('/comment/store', 'CommentController@store')->name('comment.add');
+Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
 
 
 

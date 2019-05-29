@@ -5,11 +5,17 @@
 @section('content')
 <script src="{{ asset('js/jquery-3.4.1.min.js')}}"></script>
 <script src="{{ asset('js/app.js')}}"></script>
+<script src="{{ asset('js/jquerybootstrap4.js')}}"></script>
+<script src="{{ asset('js/jquerydatatables.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+			    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
 
 
         <center><h3>Updates</h3></center>
         <br>
-<table id="example" class="table table-striped table-bordered" style="width:100%">
+        <table id="example2" class="table table-striped table-bordered" style="width:100%">
         <thead>
 		<tr>
                 <th></th>
@@ -26,7 +32,6 @@
               <th scope="col">#</th>
               <th scope="col">Task Title</th>
               <th scope="col">Task Type</th>
-              <th scope="col">Task Description</th>
               <th scope="col">Students Involved</th>
               <th scope="col">Created At</th>
               <th scope="col">Campus</th>
@@ -35,11 +40,11 @@
         </thead>
         <tbody>
         @foreach($tasks as $task)
+        @if ($task->type == 'Update')
             <tr>
               <th scope="row">{{$task->id}}</th>
               <td><a href="/tasks/{{$task->id}}">{{$task->title}}</a></td>
               <td>{{$task->type}}</td>
-              <td>{{$task->description}}</td>
               <td>{{$task->studentinvolved}}</td>
               <td>{{$task->created_at->toFormattedDateString()}}</td>
               <td>{{$task->campus}}</td>
@@ -56,6 +61,7 @@
               </div>
 			</td>
             </tr>
+            @endif
             @endforeach
       
 			</tbody>
@@ -90,18 +96,19 @@
       </div>
       <label for="title">Students Involved: </label><br>
       <div class="row">
+      
       <div class="col-9">
         <div class="checkbox">
-          <label><input type="checkbox" id="taskstudentinvolved"  name="studentinvolved" value="Chrsitopher Sabat[]">Chrsitopher Sabat</label>
+          <label><input type="checkbox" name="studentinvolved[]" value="Christopher Sabat">Chrsitopher Sabat</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" id="taskstudentinvolved"  name="studentinvolved" value="Hussien Samman[]">Hussien Samman</label>
+          <label><input type="checkbox" name="studentinvolved[]" value="Hussien Samman">Hussien Samman</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" id="taskstudentinvolved"  name="studentinvolved" value="Benan Ergen[]">Benan Ergen</label>
+          <label><input type="checkbox" name="studentinvolved[]" value="Benan Ergen">Benan Ergen</label>
         </div>
         <div class="checkbox">
-          <label><input type="checkbox" id="taskstudentinvolved"  name="studentinvolved" value="Han-Te Tsai[]">Han-Te Tsai</label>
+          <label><input type="checkbox" name="studentinvolved[]" value="Han-Te Tsai">Han-Te Tsai</label>
         </div>
       </div>
       </div>
@@ -131,15 +138,15 @@
           </div>
         </div>
 
-        {{-- <script>
-                $(document).ready(function() {
-                $('#example').DataTable();
-            } );
-                </script>
-                <script>
-                $(document).ready(function() {
-                $('#example2').DataTable();
-            } );
-                </script> --}}
+      <script>
+	$(document).ready(function() {
+    $('#example').DataTable();
+} );
+	</script>
+	<script>
+	$(document).ready(function() {
+    $('#example2').DataTable();
+} );
+	</script>
 
 @endsection

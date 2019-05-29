@@ -60,8 +60,11 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        return view('tasks.show',compact('task',$task));
+        return view('studentfrontend.guview',compact('task',$task));
         return view('studentfrontend.update',compact('task',$task));
+        return view('studentfrontend.grievance',compact('task',$task));
+        return view('adminfrontend.adminguview',compact('task',$task));
+        
     }
 
     /**
@@ -93,6 +96,9 @@ class TaskController extends Controller
         $task->title = $request->title;
         $task->description = $request->description;
         $task->type = $request->type;
+        $request -> merge([
+            'studentinvolved' => implode(',',(array) $request -> get('studentinvolved'))
+        ]);
         $task->studentinvolved = $request->studentinvolved;
         $task->save();
         $request->session()->flash('message', 'Successfully modified the task!');
