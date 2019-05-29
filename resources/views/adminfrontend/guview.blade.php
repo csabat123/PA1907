@@ -1,4 +1,4 @@
-@extends ('studentlayouts.master')
+@extends ('adminlayouts.master')
 
 @section('title', 'View')
 

@@ -51,6 +51,12 @@ Route::get('adminteam', function () {
 Route::get('adminguview', function () {
         return view('adminfrontend.guview');
 });
+Route::get('admingroupview', function () {
+    return view('adminfrontend.groupview');
+});
+Route::get('admingroupsettings', function () {
+    return view('adminfrontend.groupsettings');
+});
 
 Route::get('admin', function () {
     return view('adminfrontend.adminstory');
