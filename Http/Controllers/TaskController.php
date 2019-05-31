@@ -18,6 +18,7 @@ class TaskController extends Controller
         $tasks = Task::all();
         return view('studentfrontend.update',compact('tasks',$tasks));
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -63,6 +64,8 @@ class TaskController extends Controller
         return view('studentfrontend.guview',compact('task',$task));
         return view('studentfrontend.update',compact('task',$task));
         return view('studentfrontend.grievance',compact('task',$task));
+        return view('adminfrontend.adminguview',compact('task',$task));
+        return view('adminfrontend.groupview',compact('task',$task));
         
     }
 
@@ -98,6 +101,7 @@ class TaskController extends Controller
         $request -> merge([
             'studentinvolved' => implode(',',(array) $request -> get('studentinvolved'))
         ]);
+        $task->studentinvolved = $request->studentinvolved;
         $task->save();
         $request->session()->flash('message', 'Successfully modified the task!');
         return redirect('tasks');
