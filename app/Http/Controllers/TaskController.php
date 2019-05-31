@@ -16,7 +16,7 @@ class TaskController extends Controller
     {
         //
         $tasks = Task::all();
-        return view('studentfrontend.update',compact('tasks',$tasks));
+        return view('studentfrontend.grievance',compact('tasks',$tasks));
     }
     
 
