@@ -36,7 +36,6 @@
 
     @include('adminlayouts.header')
 
-    @include('adminlayouts.sidebar')
 
     @yield('content')
 

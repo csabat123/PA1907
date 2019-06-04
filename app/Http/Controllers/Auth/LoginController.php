@@ -22,12 +22,12 @@ class LoginController extends Controller
 
     protected function authenticated($request, $user)
         {
-         if($user->hasRole[$Admin]) {
-         return redirect(‘/adminstory’);
-            } elseif ($user->hasRole[$Student]) {
-            return redirect(‘/studentindex’);
+         if($user->hasRole('ROLE_ADMIN')) {
+         return redirect('adminstory');
+            } elseif ($user->hasRole('ROLE_STUDENT')) {
+            return redirect('studentindex');
         } else {
-          return redirect(‘/home’);
+          return redirect('login');
     }
 }
 

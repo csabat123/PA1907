@@ -1,122 +1,152 @@
-
-
-
 @extends ('studentlayouts.master')
 
 @section('title', 'Grievance')
 
 @section('content')
+<script src="{{ asset('js/jquery-3.4.1.min.js')}}"></script>
+<script src="{{ asset('js/app.js')}}"></script>
+<script src="{{ asset('js/jquerybootstrap4.js')}}"></script>
+<script src="{{ asset('js/jquerydatatables.js')}}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+		    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+			    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
 
 
-    <h3>Grievances</h3>
-    <br>
-    <center><h4> Lodged Grievances </h4></center>
-    <br>
-    <p>      <table id="example" class="table table-striped table-bordered" style="width:100%">
-    <thead>
-      <tr>
-      <th></th>
-      <th colspan="4">
-      <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#exampleModal">
-       Add
-      </button>
-      </th>
-
-       </tr>
-          <tr class="table-warning ">
-              <th>Name</th>
-              <th>Subject</th>
-              <th>Students Involved</th>
-              <th>Date</th>
-              <th>Campus</th>
-          </tr>
-      </thead>
-      <tbody>
-      <tbody>
-          <tr>
-              <td><a href=event1.html>Australia Date Event</a></td>
-              <td>System Architect</td>
-              <td>Edinburgh</td>
-              <td>2009/01/12</td>
-              <td>61</td>
-          </tr>
-          <tr>
-              <td>Garrett Winters</td>
-              <td>Accountant</td>
-              <td>Tokyo</td>
-              <td>2009/01/12</td>
-              <td>63</td>
-          </tr>
-          </tbody>
-      <tfoot>
-      </tfoot>
-  </table>
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">New Grievance</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-     <div class="container">
-<form action="/action.page.php">
-
-<fieldset class="form-group">
-Type:
-<select class="form-control">
-<option>Grievance</option>
-</select>
-<br>
-<div class="form-group">
-<label for="comment">Subject:</label>
-<textarea class="form-control" rows="1" id="comment"></textarea>
-</div>
-<br>
-<div class="row">
-
-<legend class="col-form-label col-3">Student's Involved</legend>
-
-<div class="col-9">
-  <div class="checkbox">
-    <label><input type="checkbox" value="">Chrsitopher Sabat</label>
-  </div>
-  <div class="checkbox">
-    <label><input type="checkbox" value="">Hussien Samman</label>
-  </div>
-  <div class="checkbox">
-    <label><input type="checkbox" value="" >Benan Ergen</label>
-  </div>
-  <div class="checkbox">
-    <label><input type="checkbox" value="" >Han-Te Tsai</label>
-  </div>
-</div>
-</div>
-<br>
-<div class="form-group">
-<label for="comment">Description:</label>
-<textarea class="form-control" rows="5" id="comment"></textarea>
-</div>
-</fieldset>
-</form>
-</div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary">Submit</button>
-    </div>
-  </div>
-</div>
-</div>
-  </p>
-  <p> </p>
-  </div>
-</div>
-</div>
+        <center><h3>Grievances</h3></center>
+        <br>
+        <table id="example2" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+		<tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+				<th colspan="4">
+				<button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#eventmodal">
+				 Add
+				</button>
+				</th>
+            </tr>
+            <tr class="table-warning ">
+              <th scope="col">#</th>
+              <th scope="col">Task Title</th>
+              <th scope="col">Task Type</th>
+              <th scope="col">Students Involved</th>
+              <th scope="col">Created At</th>
+              <th scope="col">Campus</th>
+              <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach($tasks as $task)
+        @if ($task->type == 'Grievance')
+            <tr>
+              <th scope="row">{{$task->id}}</th>
+              <td><a href="/tasks/{{$task->id}}">{{$task->title}}</a></td>
+              <td>{{$task->type}}</td>
+              <td>{{$task->studentinvolved}}</td>
+              <td>{{$task->created_at->toFormattedDateString()}}</td>
+              <td>{{$task->campus}}</td>
+              <td>
+              <div class="btn-group" role="group" aria-label="Basic example">
+                  <a href="{{ URL::to('tasks/' . $task->id . '/edit') }}">
+                  	<button type="button" class="btn btn-warning">Edit</button>
+                  </a>&nbsp;
+                  <form action="{{url('tasks', [$task->id])}}" method="POST">
+    					<input type="hidden" name="_method" value="DELETE">
+   						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+   						<input type="submit" class="btn btn-danger" value="Delete"/>
+   				  </form>
+              </div>
+			</td>
+            </tr>
+            @endif
+            @endforeach
+      
+			</tbody>
+        <tfoot>
+        </tfoot>
+    </table>
 
 
-</section>
+    
+	<div class="modal fade" id="eventmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New Update</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form action="/tasks" method="post">
+     {{ csrf_field() }}
+      <div class="form-group">
+        <label for="title">Task Title</label>
+        <input type="text" class="form-control" id="taskTitle"  name="title">
+      </div>
+      <div class="form-group">
+        <label for="title">Type</label>
+        <select class="form-control" id="taskType"  name="type">
+        <option>Update</option>
+        <option>Grievance</option>
+        </select>
+      </div>
+      <label for="title">Students Involved: </label><br>
+      <div class="row">
+      
+      <div class="col-9">
+        <div class="checkbox">
+          <label><input type="checkbox" name="studentinvolved[]" value="Christopher Sabat">Chrsitopher Sabat</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" name="studentinvolved[]" value="Hussien Samman">Hussien Samman</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" name="studentinvolved[]" value="Benan Ergen">Benan Ergen</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" name="studentinvolved[]" value="Han-Te Tsai">Han-Te Tsai</label>
+        </div>
+      </div>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="description">Task Description</label>
+        <textarea type="text" class="form-control" id="taskDescription" name="description" rows="5"></textarea>
+      </div>
+      @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+      @endif
+      
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+      <script>
+	$(document).ready(function() {
+    $('#example').DataTable();
+} );
+	</script>
+	<script>
+	$(document).ready(function() {
+    $('#example2').DataTable();
+} );
+	</script>
+
 @endsection

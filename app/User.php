@@ -14,9 +14,13 @@ class User extends Authenticatable
      * The attributes that are mass assignable.
      *
      * @var array
+     *
+     *
      */
-    protected $fillable = [
-        'name', 'email', 'password',
+
+
+     protected $fillable = [
+        'firstName', 'lastName', 'email', 'password'
     ];
 
     /**
@@ -27,6 +31,11 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function data()
+    {
+        return $this->hasOne(Role::class);
+    }
 
     /**
      * The attributes that should be cast to native types.
@@ -40,6 +49,13 @@ class User extends Authenticatable
     {
         return $this
             ->belongsToMany('App\Role')
+            ->withTimestamps();
+    }
+
+    public function groups()
+    {
+        return $this
+            ->belongsToMany('App\teamdetail')
             ->withTimestamps();
     }
 
@@ -74,7 +90,7 @@ public function hasAnyRole($roles)
 }
 public function hasRole($role)
 {
-  if ($this->roles()->where(‘name’, $role)->first()) {
+  if ($this->roles()->where('name', $role)->first()) {
     return true;
   }
   return false;
